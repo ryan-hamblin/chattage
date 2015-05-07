@@ -3,15 +3,16 @@ var app = angular.module('chatroom');
 app.controller('mainCtrl', function($scope, parseService){
 
   $scope.getParseData = function(){
-    console.log('results')
+    
     parseService.getData().then(function(results){
-      $scope.messages = results
-    })
+      $scope.messages = results;
+      console.log(results);
+     })
   
     };
   setInterval(function(){
       $scope.getParseData();
-    }, 1500)
+    }, 3000)
 
   $scope.postData = function(){
     parseService.postData($scope.message)
@@ -20,7 +21,10 @@ app.controller('mainCtrl', function($scope, parseService){
   $scope.formatData = function(dateString){
     return new Date(dateString).toLocaleString();
   }
-
+  
+  $scope.formatDate = function(dateString){
+    return new Date(dateString).toLocaleString();
+  }
 
 
 });

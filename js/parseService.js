@@ -23,7 +23,7 @@ app.service('parseService', function($http, $q){
         url: 'https://api.parse.com/1/classes/chat', 
         params: {sort: 'ascending'},
         data: {'text': message}
-      })
+      }) 
     };
 
 
