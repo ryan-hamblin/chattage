@@ -15,27 +15,27 @@ app.service('parseService', function($http, $q){
       });
     }
 
-    
-        this.postData = function(message){
-          // do an $http request to add a message to our parse backend
-          return $http({
-            method: 'POST',
-            url: 'https://api.parse.com/1/classes/chat', 
-            params: {sort: 'ascending'},
-            data: {'text': message}
-          })
-        };
+
+    this.postData = function(message){
+      // do an $http request to add a message to our parse backend
+      return $http({
+        method: 'POST',
+        url: 'https://api.parse.com/1/classes/chat', 
+        params: {sort: 'ascending'},
+        data: {'text': message}
+      })
+    };
 
 
-        this.getData = function(){
+    this.getData = function(){
 
-        return $http({
-          'method': 'get',
-          'url': "https://api.parse.com/1/classes/chat?order=-createdAt"
-        }).then(function(res){
-          return res.data.results
-        })
-      }
+    return $http({
+      'method': 'get',
+      'url': "https://api.parse.com/1/classes/chat?order=-createdAt"
+    }).then(function(res){
+      return res.data.results
+    })
+  }
 });
   //On the line below create the postData method. This method will add data to the parse backend.
   //The url for the request needs to be 'https://api.parse.com/1/classes/chat'

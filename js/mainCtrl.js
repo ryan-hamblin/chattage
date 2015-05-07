@@ -3,6 +3,7 @@ var app = angular.module('chatroom');
 app.controller('mainCtrl', function($scope, parseService){
 
   $scope.getParseData = function(){
+    console.log('results')
     parseService.getData().then(function(results){
       $scope.messages = results
     })
